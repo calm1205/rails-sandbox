@@ -1,0 +1,13 @@
+services:
+  api:
+    container_name: rails-sandbox
+    platform: linux/amd64
+    build:
+      context: .
+    command: bash -c "rails db:migrate && rails s -b 0.0.0.0"
+    volumes:
+      - type: bind
+        source: ./
+        target: /api
+    ports:
+      - "3000:3000"
