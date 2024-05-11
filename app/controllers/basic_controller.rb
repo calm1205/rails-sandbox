@@ -29,4 +29,15 @@ class BasicController < ApplicationController
   def get_file
     send_file Rails.root.join('public', '404.html')
   end
+
+  def format
+    # localhost:3000/basic/format?format=html
+    # or
+    # localhost:3000/basic/format?format=json
+
+    respond_to do |format|
+      format.html { render plain: 'HTML response' }
+      format.json { render plain: 'JSON response' }
+    end
+  end
 end

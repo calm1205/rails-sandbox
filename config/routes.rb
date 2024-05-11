@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'basic', to: 'basic#index'
   get 'basic/file', to: 'basic#get_file'
+  get 'basic/format', to: 'basic#format'
   resources :articles
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
