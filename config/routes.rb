@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   # cookies
   get "cookies", to: "cookies#index"
+  get "cookies/permanent", to: "cookies#parmanent"
+  get "cookies/delete", to: "cookies#delete"
 
   resources :articles
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
