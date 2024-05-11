@@ -7,6 +7,7 @@ class BasicController < ApplicationController
       Host: #{request.headers['Host']}
       Referer: #{request.headers['Referer']}
       User-Agent: #{request.headers['User-Agent']}
+      HTTP_COOKIE: #{request.headers['HTTP_COOKIE']}
 
       QUERT_STRING: #{request.query_string}
       PATH_INFO: #{request.path_info}
