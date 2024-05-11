@@ -25,4 +25,8 @@ class BasicController < ApplicationController
       action_name: #{action_name}
     EOS
   end
+
+  def get_file
+    send_file Rails.root.join('public', '404.html')
+  end
 end
