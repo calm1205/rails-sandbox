@@ -45,4 +45,10 @@ class BasicController < ApplicationController
     response.headers['Refresh'] = '3'
     render plain: Time.now
   end
+
+  def cache
+    # expires_in 3.minutes, private: true
+    expires_now # no-cache
+    render plain: Time.zone.now
+  end
 end
