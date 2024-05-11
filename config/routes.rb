@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+
+  # basic
   get 'basic', to: 'basic#index'
   get 'basic/file', to: 'basic#get_file'
   get 'basic/format', to: 'basic#format'
   get 'basic/refresh', to: 'basic#refresh'
   get 'basic/cache', to: 'basic#cache'
+
+  # cookies
+  get 'cookies', to: 'cookies#index'
 
   resources :articles
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
