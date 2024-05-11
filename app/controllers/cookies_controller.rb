@@ -14,7 +14,7 @@ class CookiesController < ApplicationController
   end
 
   # cookie永続化 期限が20年になる
-  def parmanent
+  def permanent
     cookies.permanent[:user] = {
       value: "sample",
       expires: 1.hour.from_now, # expiresよりもpermanentの方が優先される
@@ -23,6 +23,17 @@ class CookiesController < ApplicationController
       secure: true
     }
 
+    render json: cookies[:user]
+  end
+
+  def signed
+    cookies.signed[:user] = {
+      value: "sample",
+      expires: 1.hour.from_now,
+      domain: "localhost",
+      path: @path,
+      secure: true
+    }
     render json: cookies[:user]
   end
 

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   # cookies
   get "cookies", to: "cookies#index"
-  get "cookies/permanent", to: "cookies#parmanent"
+  get "cookies/permanent", to: "cookies#permanent"
+  get "cookies/signed", to: "cookies#signed"
   get "cookies/delete", to: "cookies#delete"
 
   resources :articles
