@@ -1,9 +1,7 @@
 require "test_helper"
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @article = articles(:one)
-  end
+  setup { @article = articles(:one) }
 
   test "should get index" do
     get articles_url
@@ -17,7 +15,18 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create article" do
     assert_difference("Article.count") do
-      post articles_url, params: { article: { access: @article.access, category: @article.category, closed: @article.closed, comments_count: @article.comments_count, published: @article.published, title: @article.title, url: @article.url } }
+      post articles_url,
+           params: {
+             article: {
+               access: @article.access,
+               category: @article.category,
+               closed: @article.closed,
+               comments_count: @article.comments_count,
+               published: @article.published,
+               title: @article.title,
+               url: @article.url
+             }
+           }
     end
 
     assert_redirected_to article_url(Article.last)
@@ -34,14 +43,23 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update article" do
-    patch article_url(@article), params: { article: { access: @article.access, category: @article.category, closed: @article.closed, comments_count: @article.comments_count, published: @article.published, title: @article.title, url: @article.url } }
+    patch article_url(@article),
+          params: {
+            article: {
+              access: @article.access,
+              category: @article.category,
+              closed: @article.closed,
+              comments_count: @article.comments_count,
+              published: @article.published,
+              title: @article.title,
+              url: @article.url
+            }
+          }
     assert_redirected_to article_url(@article)
   end
 
   test "should destroy article" do
-    assert_difference("Article.count", -1) do
-      delete article_url(@article)
-    end
+    assert_difference("Article.count", -1) { delete article_url(@article) }
 
     assert_redirected_to articles_url
   end

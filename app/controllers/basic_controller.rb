@@ -1,13 +1,13 @@
 class BasicController < ApplicationController
   def index
     render plain: <<-EOS
-      Accept: #{request.headers['Accept']}
-      Accept-Language: #{request.headers['Accept-Language']}
-      Authorization: #{request.headers['Authorization']}
-      Host: #{request.headers['Host']}
-      Referer: #{request.headers['Referer']}
-      User-Agent: #{request.headers['User-Agent']}
-      HTTP_COOKIE: #{request.headers['HTTP_COOKIE']}
+      Accept: #{request.headers["Accept"]}
+      Accept-Language: #{request.headers["Accept-Language"]}
+      Authorization: #{request.headers["Authorization"]}
+      Host: #{request.headers["Host"]}
+      Referer: #{request.headers["Referer"]}
+      User-Agent: #{request.headers["User-Agent"]}
+      HTTP_COOKIE: #{request.headers["HTTP_COOKIE"]}
 
       QUERT_STRING: #{request.query_string}
       PATH_INFO: #{request.path_info}
@@ -27,7 +27,7 @@ class BasicController < ApplicationController
   end
 
   def get_file
-    send_file Rails.root.join('public', '404.html')
+    send_file Rails.root.join("public", "404.html")
   end
 
   def format
@@ -36,13 +36,13 @@ class BasicController < ApplicationController
     # localhost:3000/basic/format?format=json
 
     respond_to do |format|
-      format.html { render plain: 'HTML response' }
-      format.json { render plain: 'JSON response' }
+      format.html { render plain: "HTML response" }
+      format.json { render plain: "JSON response" }
     end
   end
 
   def refresh
-    response.headers['Refresh'] = '3'
+    response.headers["Refresh"] = "3"
     render plain: Time.now
   end
 
