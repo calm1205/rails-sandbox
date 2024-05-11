@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
+    # TODO: Implement the show action
   end
 
   # GET /articles/new
