@@ -40,4 +40,9 @@ class BasicController < ApplicationController
       format.json { render plain: 'JSON response' }
     end
   end
+
+  def refresh
+    response.headers['Refresh'] = '3'
+    render plain: Time.now
+  end
 end
